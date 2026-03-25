@@ -1,5 +1,7 @@
+/* IMPORTAZIONE FONT: Carica i caratteri Google Fonts (Playfair Display per i titoli, Lato per i testi) */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Lato:wght@300;400&display=swap');
 
+/* BODY: Impostazioni generali della pagina (font principale, margini azzerati, colore sfondo crema e colore testo) */
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
@@ -7,11 +9,13 @@ body {
     color: #4a3728; 
 }
 
+/* TITOLI H1-H2: Stile per i titoli principali con font elegante e spaziatura tra le lettere */
 h1, h2 {
     font-family: 'Playfair Display', serif;
     letter-spacing: 1px;
 }
 
+/* HEADER: Stile della testata superiore (sfondo bianco, spaziatura interna e bordo inferiore sottile) */
 header {
     background-color: #ffffff;
     padding: 40px 20px;
@@ -19,20 +23,23 @@ header {
     border-bottom: 1px solid #e2d1c3;
 }
 
+/* BRAND TITLE: Stile del nome del marchio (dimensione grande e colore terracotta) */
 .brand-title {
     font-size: 2.5em;
     color: #c07d4d; 
     margin: 0;
 }
 
+/* HERO SECTION (Generale): Sezione d'impatto con immagine di sfondo e sovrapposizione scura per leggibilità */
 #hero {
     padding: 80px 20px;
     text-align: center;
-   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/banner-home.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/banner-home.jpg');
     background-size: cover;
     background-position: center;
 }
 
+/* PRODUCT CARD (Generale): Box bianco per i prodotti con bordo leggero e ombra esterna */
 .product-card {
     background: white;
     border: 1px solid #eee;
@@ -41,12 +48,15 @@ header {
     max-width: 600px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
+
+/* CONTAINER: Limita la larghezza massima del contenuto centrale per una migliore leggibilità */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* PRODUCT GRID: Layout flessibile per allineare i prodotti orizzontalmente con spaziature uniformi */
 .product-grid {
     display: flex;
     flex-wrap: wrap; 
@@ -54,6 +64,7 @@ header {
     justify-content: center;
 }
 
+/* PRODUCT CARD (Specifico): Box prodotto con layout Flex per adattarsi a diverse risoluzioni */
 .product-card {
     flex: 1 1 300px;
     background: #fff;
@@ -62,8 +73,9 @@ header {
     text-align: center;
     border-radius: 8px;
 }
+
+/* HERO (Layout Avanzato): Configurazione flex per centrare il contenuto bianco nel banner principale */
 #hero {
-    
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./img/banner-home.jpg');
     background-size: cover;       
     background-position: center;  
@@ -75,16 +87,18 @@ header {
     color: white;                 
 }
 
+/* HERO CONTENT H1: Titolo grande nel banner con ombra per risaltare sull'immagine */
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
 }
 
+/* TITOLI DI SEZIONE: Classi per allineare i titoli al centro o a sinistra con colore arancione scuro */
 .titolo-centro { text-align: center; margin: 40px 0; color: #d2691e; }
 .titolo-sinistra { text-align: left; padding-left: 20px; color: #d2691e; }
 
-
+/* PRODOTTI GRID: Griglia flessibile che distribuisce i prodotti con spazio intorno (Space-around) */
 .prodotti-grid {
     display: flex;
     justify-content: space-around;
@@ -93,6 +107,7 @@ header {
     padding: 20px;
 }
 
+/* CARD: Box singolo prodotto con angoli arrotondati e ombra leggera al passaggio */
 .card {
     flex: 1;
     min-width: 200px;
@@ -103,8 +118,10 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* CARD IMG: Gestione delle immagini prodotto (dimensioni fisse e ritaglio proporzionale) */
 .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
 
+/* TITOLO SINISTRA ORO: Titolo elegante allineato a sinistra in colore oro scuro */
 .titolo-sinistra {
     text-align: left;
     margin-left: 5%;
@@ -112,7 +129,7 @@ header {
     font-family: 'Playfair Display', serif; 
 }
 
-
+/* ESSENZIALI GRID: Griglia CSS Grid a due colonne per la sezione degli ingredienti/prodotti chiave */
 .essenziali-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -120,7 +137,7 @@ header {
     padding: 20px 5%;
 }
 
-
+/* BANNER BOX: Box colorato (Oro) per evidenziare contenuti speciali con transizione fluida */
 .banner-box {
     background-color: #DAA520; 
     height: 250px; 
@@ -134,11 +151,12 @@ header {
     color: white; 
 }
 
-
+/* BANNER HOVER: Effetto di ingrandimento leggero quando l'utente passa il mouse sul box */
 .banner-box:hover {
     transform: scale(1.02);
 }
 
+/* BANNER CONTENT: Stile del testo (Titolo e paragrafo) all'interno dei box in evidenza */
 .banner-content h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
@@ -150,17 +168,20 @@ header {
     opacity: 0.9;
 }
 
+/* SFONDI SPECIFICI: Immagini di sfondo con velo dorato per le categorie Nila, Argan, Soap e Henna */
 .nila { background-image: linear-gradient(rgba(218,165,32,0.8), rgba(218,165,32,0.8)), url('img/nila.jpg'); background-size: cover; }
 .argan { background-image: linear-gradient(rgba(218,165,32,0.8), rgba(218,165,32,0.8)), url('img/argan.jpg'); background-size: cover; }
 .soap { background-image: linear-gradient(rgba(218,165,32,0.8), rgba(218,165,32,0.8)), url('img/soap.jpg'); background-size: cover; }
 .henna { background-image: linear-gradient(rgba(218,165,32,0.8), rgba(218,165,32,0.8)), url('img/henna.jpg'); background-size: cover; }
 
+/* SERVIZI CONTAINER: Contenitore Flex per affiancare i box dei servizi SPA */
 .servizi-container {
     display: flex;
     gap: 20px;
     padding: 20px;
 }
 
+/* SERVIZIO BOX: Stile del singolo servizio (bordo arancione e testo centrato) */
 .servizio-box {
     flex: 1;
     padding: 30px;
@@ -169,9 +190,10 @@ header {
     text-align: center;
 }
 
+/* GOLD SERVICE: Variante lussuosa del box servizio con sfondo avorio e bordo oro */
 .gold { background-color: #fdf5e6; border: 2px solid #daa520; }
 
-
+/* CONTATTI BANNER: Sezione finale arancione per l'invito all'azione (Prenotazione) */
 #contatti-banner {
     background-color: #d2691e;
     color: white;
@@ -180,6 +202,7 @@ header {
     margin-top: 50px;
 }
 
+/* BOTTONE PRENOTA: Pulsante bianco arrotondato con cambio cursore e stile bold */
 .btn-prenota {
     background-color: white;
     color: #d2691e;
@@ -189,12 +212,15 @@ header {
     font-weight: bold;
     cursor: pointer;
 }
+
+/* BLACK SOAP: Immagine di sfondo specifica per il prodotto sapone nero con filtro dorato */
 .black-soap { 
     background-image: linear-gradient(rgba(218,165,32,0.8), rgba(218,165,32,0.8)), url('img/sapone.jpg'); 
     background-size: cover; 
     background-position: center;
 }
 
+/* HERO (Video/Img background): Sezione d'apertura alta con contenuto centrato sopra lo sfondo */
 #hero {
     position: relative;
     height: 500px; 
@@ -206,7 +232,7 @@ header {
     text-align: center;
 }
 
-
+/* HERO BACKGROUND: Gestione dell'immagine o video posizionato sotto il testo con filtro scurrente */
 .hero-bg {
     position: absolute;
     top: 0;
@@ -218,11 +244,13 @@ header {
     filter: brightness(0.6); 
 }
 
+/* HERO CONTENT Z-INDEX: Assicura che il testo sia sopra l'immagine di sfondo */
 .hero-content {
     position: relative;
     z-index: 1;
 }
 
+/* NAVIGAZIONE STICKY: Barra arancione che rimane fissa in alto durante lo scorrimento */
 .top-nav {
     background-color: #E67E22; 
     padding: 15px 0;
@@ -234,6 +262,7 @@ header {
     z-index: 1000;
 }
 
+/* NAV LINKS: Stile dei link della barra di navigazione (Bianchi, maiuscoli e animati al passaggio) */
 .top-nav a {
     color: white;
     text-decoration: none;
@@ -248,18 +277,20 @@ header {
     opacity: 0.7;
 }
 
-
+/* ABOUT SECTION: Sezione descrittiva del marchio con sfondo crema chiaro */
 #about {
     padding: 80px 10%;
     background-color: #fffaf0; 
 }
 
+/* ABOUT CONTAINER: Layout flex per affiancare testo e immagine descrittiva */
 .about-container {
     display: flex;
     align-items: center;
     gap: 50px;
 }
 
+/* ABOUT TEXT: Area di testo della sezione About (Titolo grande e paragrafi leggibili) */
 .about-text {
     flex: 1;
 }
@@ -278,6 +309,7 @@ header {
     margin-bottom: 15px;
 }
 
+/* ABOUT IMAGE: Area immagine con effetto ombra color oro (offset) per stile grafico lussuoso */
 .about-image {
     flex: 1;
     text-align: center;
@@ -289,17 +321,18 @@ header {
     box-shadow: 20px -20px 0px #DAA520; 
 }
 
-
+/* RESPONSIVE DESIGN: Regole per smartphone (dispone gli elementi in colonna e rimpicciolisce i testi) */
 @media (max-width: 768px) {
     .about-container { flex-direction: column; text-align: center; }
     .top-nav { gap: 15px; font-size: 0.7rem; }
 }
 
+/* SCROLL BEHAVIOR: Rende lo scorrimento tra le sezioni fluido anziché immediato */
 html {
     scroll-behavior: smooth;
 }
 
-
+/* SECTION FULLSCREEN: Imposta ogni sezione a tutta pagina (utilizzato per la presentazione Quarto) */
 section {
     height: 100vh; 
     width: 100vw;
@@ -313,13 +346,14 @@ section {
     scroll-snap-align: start; 
 }
 
+/* SCROLL SNAP: Effetto "calamita" che blocca la visuale all'inizio di ogni sezione */
 body {
     padding: 0;
     overflow-x: hidden;
     scroll-snap-type: y mandatory; 
 }
 
-
+/* FRECCE NAVIGAZIONE: Stile delle icone avanti/indietro per la navigazione slide */
 .arrows a {
     text-decoration: none;
     color: #E67E22;
@@ -332,6 +366,8 @@ body {
     transform: scale(1.2);
     color: #DAA520;
 }
+
+/* COOKIE BANNER: Barra informativa fissata in basso per la conformità GDPR con ombra e bordo oro */
 #cookie-banner {
     position: fixed;
     bottom: 20px;
@@ -348,12 +384,14 @@ body {
     z-index: 9999;
 }
 
+/* COOKIE BANNER P: Testo piccolo e discreto informativo sui cookie */
 #cookie-banner p {
     font-size: 0.9rem;
     color: #555;
     margin: 0;
 }
 
+/* COOKIE BUTTON: Pulsante di accettazione arancione con effetto hover */
 #cookie-banner button {
     background-color: #E67E22;
     color: white;

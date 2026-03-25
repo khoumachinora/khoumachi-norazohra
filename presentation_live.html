@@ -2,158 +2,256 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MarocEssence - Live Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarocEssence - Technical Presentation</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
+        /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { height: 100%; overflow: hidden; background-color: #fffaf0; font-family: 'Georgia', serif; }
-        section { display: none; height: 100vh; width: 100vw; padding: 50px; flex-direction: column; align-items: center; justify-content: center; background: white; animation: fadeIn 0.4s ease-out; position: relative; }
+        body, html { 
+            height: 100%; 
+            background-color: #fffaf0; 
+            font-family: 'Georgia', serif; 
+            overflow: hidden; 
+        }
+        
+        /* SLIDE SYSTEM */
+        section { 
+            display: none; 
+            height: 100vh; 
+            width: 100vw; 
+            padding: 40px 80px; /* Più laterale */
+            background: #fffaf0; 
+            position: relative;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
         section:target { display: flex; }
         section:first-of-type { display: flex; }
         section:target ~ section:first-of-type { display: none; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        h2 { color: #E67E22; font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
-        .screenshot { height: 38vh; width: auto; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        p { max-width: 800px; text-align: center; color: #666; margin-bottom: 20px; line-height: 1.5; }
-        pre { background: #fdf2e9; color: #d35400; padding: 20px; border-radius: 8px; width: 100%; max-width: 800px; border-left: 6px solid #E67E22; font-size: 0.9rem; font-family: 'Courier New', monospace; text-align: left; }
-        .footer { position: absolute; bottom: 40px; width: 100%; max-width: 850px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .brand-name { color: #DAA520; font-weight: bold; font-size: 0.9rem; }
-        .arrows a { text-decoration: none; color: #E67E22; font-size: 3.5rem; margin-left: 20px; transition: 0.3s ease; display: inline-block; }
-        .arrows a:hover { transform: scale(1.2); color: #DAA520; }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* TYPOGRAPHY - Scaled for Harmony */
+        h1 { color: #E67E22; font-size: 2.8rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
+        h2 { color: #E67E22; font-size: 1.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid rgba(230, 126, 34, 0.2); padding-bottom: 10px; width: fit-content; }
+        h3 { color: #DAA520; font-size: 1.2rem; margin-bottom: 15px; font-style: italic; font-weight: normal; }
+        p { max-width: 800px; color: #555; font-size: 1rem; line-height: 1.5; margin-bottom: 20px; }
+        
+        /* CODE BOXES - Compact & Styled */
+        pre { 
+            background: #fdf2e9; 
+            color: #d35400; 
+            padding: 15px 20px; 
+            border-radius: 8px; 
+            border-left: 5px solid #E67E22; 
+            font-family: 'Courier New', monospace; 
+            font-size: 0.85rem;
+            text-align: left;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow-x: auto;
+            margin-top: 5px;
+        }
+
+        /* MEDIA - Controlled Heights */
+        .screenshot { 
+            max-height: 32vh; /* Crucial for small screens */
+            width: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border: 1px solid #eee; 
+            margin-bottom: 20px;
+        }
+
+        /* NAVIGATION FOOTER */
+        .footer { 
+            position: absolute; 
+            bottom: 30px; 
+            width: 85%; 
+            max-width: 1000px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 15px;
+        }
+        .brand-name { color: #DAA520; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .arrows a { text-decoration: none; color: #E67E22; font-size: 2.5rem; transition: 0.3s; line-height: 1; display: inline-block; padding: 0 10px; }
+        .arrows a:hover { color: #DAA520; transform: translateY(-3px); }
         .disabled { opacity: 0.1; pointer-events: none; }
     </style>
 </head>
 <body>
 
     <section id="slide0">
-        <h1 style="color: #E67E22; font-size: 3rem; text-transform: uppercase; margin-bottom: 40px; text-align: center; letter-spacing: 3px;">Portfolio Website for an E-commerce</h1>
-        <div style="text-align: center; color: #555; line-height: 2; font-size: 1.2rem;">
+        <h1>Portfolio Website</h1>
+        <div class="mt-2">
             <p>Student: <strong>NoraZohra Khoumachi</strong></p>
             <p>Matriculation Number: <strong>78320a</strong></p>
-            <p>Degree Programme: <strong>Corporate Communication</strong></p>
-            <p style="margin-top: 20px;">Project website: <span style="color: #DAA520; text-decoration: underline;">marocessence.github.io</span></p>
-            <p style="margin-top: 40px; font-style: italic; color: #888;">Web Communication Exam Project</p>
+            <p style="margin-top: 20px;">Project Live: <span style="color: #DAA520; font-weight: bold;">marocessence.github.io</span></p>
         </div>
         <div class="footer">
             <span class="brand-name">MAROCESSENCE / INTRO</span>
-            <div class="arrows">
-                <a href="#" class="disabled">&lt;</a>
-                <a href="#slide1">&gt;</a>
-            </div>
+            <div class="arrows"><a href="#" class="disabled">&lt;</a><a href="#slide1">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide1">
-        <h2>01. Hero Section & Visual Impact</h2>
-        <p>Immediate emotional connection using a full-width atmospheric image and centered typography.</p>
-        <pre><code>#hero { display: flex; align-items: center; justify-content: center; height: 80vh; }</code></pre>
+        <h2>01. Hero & Markdown Strategy</h2>
+        <p>Decoupling content from presentation through <strong>Markdown</strong> ensures scalability and cleaner code maintenance.</p>
+        <pre><code># Markdown Concept:
+# Ancient Rituals
+> Delivering an atmospheric experience through centered layout.
+![Hero Image](img/banner.jpg)</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / HERO</span>
-            <div class="arrows">
-                <a href="#slide0">&lt;</a>
-                <a href="#slide2">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / STRATEGY</span>
+            <div class="arrows"><a href="#slide0">&lt;</a><a href="#slide2">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide2">
-        <h2>02. Sticky Navigation</h2>
-        <img src="img/screen-nav.jpg" class="screenshot">
-        <p>The website uses a sticky top navigation that remains visible while scrolling.</p>
-        <pre><code>.top-nav { position: sticky; top: 0; background: #E67E22; }</code></pre>
+        <h2>02. Bootstrap 5 Integration</h2>
+        <p>Leveraging a robust framework for responsive grid systems and professional UI components.</p>
+        <pre><code>&lt;!-- Bootstrap Integration --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / UI</span>
-            <div class="arrows">
-                <a href="#slide1">&lt;</a>
-                <a href="#slide3">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / FRAMEWORK</span>
+            <div class="arrows"><a href="#slide1">&lt;</a><a href="#slide3">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide3">
-        <h2>03. Brand Storytelling</h2>
-        <img src="img/screen-about.jpg" class="screenshot">
-        <p>A dedicated section to communicate the heritage of the Hammam ritual.</p>
-        <pre><code>.about-container { display: flex; align-items: center; gap: 50px; }</code></pre>
+        <h2>03. Responsive Mobile Menu</h2>
+        <img src="img/screen-mob-nav.jpg" alt="Mobile Navigation" class="screenshot">
+        <p>Using the <code>navbar-toggler</code> for a seamless mobile experience via the Hamburger Menu.</p>
+        <pre><code>&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"&gt;
+  &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+&lt;/button&gt;</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / STORY</span>
-            <div class="arrows">
-                <a href="#slide2">&lt;</a>
-                <a href="#slide4">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / MOBILE UX</span>
+            <div class="arrows"><a href="#slide2">&lt;</a><a href="#slide4">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide4">
-        <h2>04. Product Grid</h2>
-        <img src="img/screen-grid.jpg" class="screenshot">
-        <p>Using CSS Grid to create a clean, responsive 4-column display.</p>
-        <pre><code>.prodotti-grid { display: grid; grid-template-columns: repeat(4, 1fr); }</code></pre>
+        <h2>04. Brand Storytelling & Grid</h2>
+        <img src="img/screen-about.jpg" alt="About Layout" class="screenshot">
+        <p>A balanced 12-column grid layout to align cultural narrative with high-impact visuals.</p>
+        <pre><code>&lt;div class="row align-items-center"&gt;
+  &lt;div class="col-lg-5"&gt; &lt;/div&gt;
+  &lt;div class="col-lg-7"&gt; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / GRID</span>
-            <div class="arrows">
-                <a href="#slide3">&lt;</a>
-                <a href="#slide5">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / GRID SYSTEM</span>
+            <div class="arrows"><a href="#slide3">&lt;</a><a href="#slide5">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide5">
-        <h2>05. SPA Experience</h2>
-        <img src="img/screen-servizi.jpg" class="screenshot">
-        <p>Highlighting service tiers with card-based layouts and Gold styling.</p>
-        <pre><code>.servizio-box.gold { border: 2px solid #DAA520; background: #fff9e6; }</code></pre>
+        <h2>05. Narrative Carousel</h2>
+        <h3>Dynamic Storytelling...</h3>
+        <img src="img/screen-carousel-active.jpg" alt="Carousel" class="screenshot">
+        <p>Implementation of <code>.carousel-fade</code> for an elegant transition between ritual stages.</p>
+        <pre><code>&lt;div id="hammamCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel"&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="carousel-item active"&gt; ... &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / SERVICES</span>
-            <div class="arrows">
-                <a href="#slide4">&lt;</a>
-                <a href="#slide6">&gt;</a> </div>
+            <span class="brand-name">MAROCESSENCE / DYNAMIC CONTENT</span>
+            <div class="arrows"><a href="#slide4">&lt;</a><a href="#slide6">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide6">
-        <h2>06. Call to Action</h2>
-        <img src="img/screen-book.jpg" class="screenshot">
-        <p>Final conversion section with a focus on booking the physical SPA experience.</p>
-        <pre><code>.btn.book { background-color: #E67E22; transition: 0.3s; }</code></pre>
+        <h2>06. Product Architecture</h2>
+        <img src="img/screen-grid.jpg" alt="Grid" class="screenshot">
+        <p>Combining CSS Grid with Bootstrap for a clean 4-column e-commerce display.</p>
+        <pre><code>.prodotti-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+}</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / CTA</span>
-            <div class="arrows">
-                <a href="#slide5">&lt;</a>
-                <a href="#slide7">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / E-COMMERCE</span>
+            <div class="arrows"><a href="#slide5">&lt;</a><a href="#slide7">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide7">
-        <h2>07. GDPR & Privacy Awareness</h2>
-        <img src="img/screen-cookies.jpg" class="screenshot">
-        <p>To ensure compliance with GDPR, I implemented a custom cookie banner.</p>
-        <pre><code>#cookie-banner { position: fixed; bottom: 20px; z-index: 9999; }</code></pre>
+        <h2>07. Interactive Micro-Interactions</h2>
+        <img src="img/screen-essentials-hover.jpg" alt="Hover effect" class="screenshot">
+        <p>Enhancing engagement with CSS <code>scale</code> and <code>box-shadow</code> transitions on hover.</p>
+        <pre><code>.card { transition: all 0.3s ease; }
+.card:hover { 
+  transform: scale(1.05); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+}</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / PRIVACY</span>
-            <div class="arrows">
-                <a href="#slide6">&lt;</a>
-                <a href="#slide8">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / USER FEEDBACK</span>
+            <div class="arrows"><a href="#slide6">&lt;</a><a href="#slide8">&gt;</a></div>
         </div>
     </section>
 
     <section id="slide8">
-        <h2>08. Final Visual Identity</h2>
-        <div style="text-align: left; width: 100%; max-width: 800px; margin-bottom: 20px;">
-            <ul style="list-style-type: disc; color: #555; font-size: 1.1rem; line-height: 1.8;">
-                <li><strong>Consistent Layout:</strong> Unified structure across all sections.</li>
-                <li><strong>Brand Palette:</strong> #E67E22 (Terracotta), #DAA520 (Gold), #fffaf0 (Cream).</li>
-                <li><strong>Typography:</strong> Georgia (Serif) for an editorial feel.</li>
-            </ul>
-        </div>
-        <pre><code>body { background-color: #fffaf0; font-family: 'Georgia', serif; }</code></pre>
+        <h2>08. Service Tiers</h2>
+        <img src="img/screen-servizi.jpg" alt="Services" class="screenshot">
+        <p>Card-based layout designed for high-end service clarity and premium aesthetics.</p>
+        <pre><code>## Service Tiers
+- [ ] Basic Ritual
+- [x] Gold Experience</code></pre>
         <div class="footer">
-            <span class="brand-name">MAROCESSENCE / BRANDING</span>
-            <div class="arrows">
-                <a href="#slide7">&lt;</a>
-                <a href="#" class="disabled">&gt;</a>
-            </div>
+            <span class="brand-name">MAROCESSENCE / SERVICES</span>
+            <div class="arrows"><a href="#slide7">&lt;</a><a href="#slide9">&gt;</a></div>
+        </div>
+    </section>
+
+    <section id="slide9">
+        <h2>09. Call to Action (CTA)</h2>
+        <img src="img/screen-book.jpg" alt="Booking" class="screenshot">
+        <p>Conversion-focused button design using Bootstrap utility classes for shadow and contrast.</p>
+        <pre><code>&lt;button class="btn btn-warning shadow"&gt;Book Now!&lt;/button&gt;</code></pre>
+        <div class="footer">
+            <span class="brand-name">MAROCESSENCE / CONVERSION</span>
+            <div class="arrows"><a href="#slide8">&lt;</a><a href="#slide10">&gt;</a></div>
+        </div>
+    </section>
+
+    <section id="slide10">
+        <h2>10. GDPR & JS Logic</h2>
+        <img src="img/screen-cookies.jpg" alt="Cookies" class="screenshot">
+        <p>Implementation of user consent via inline JavaScript to manage banner visibility.</p>
+        <pre><code>&lt;button onclick="document.getElementById('cookie-banner').style.display='none'"&gt;
+    Accept All
+&lt;/button&gt;</code></pre>
+        <div class="footer">
+            <span class="brand-name">MAROCESSENCE / LEGAL & JS</span>
+            <div class="arrows"><a href="#slide9">&lt;</a><a href="#slide11">&gt;</a></div>
+        </div>
+    </section>
+
+    <section id="slide11">
+        <h2>11. Technical Identity Recap</h2>
+        <p>Unified visual system implemented via global CSS variables and master body styling.</p>
+        <pre><code>body { 
+  background-color: #fffaf0; /* Cream */
+  font-family: 'Georgia', serif; /* Luxury */
+  color: #555; 
+}
+h1, h2 { color: #E67E22; } /* Terracotta */</code></pre>
+        <div class="footer">
+            <span class="brand-name">MAROCESSENCE / MASTER CSS</span>
+            <div class="arrows"><a href="#slide10">&lt;</a><a href="#" class="disabled">&gt;</a></div>
         </div>
     </section>
 
